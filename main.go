@@ -9,11 +9,12 @@ import (
 
 	"github.com/lemon-mint/golang-ci-tools/gocap"
 	"github.com/lemon-mint/golang-ci-tools/golicenses"
+	"github.com/lemon-mint/golang-ci-tools/gosec"
 	"github.com/lemon-mint/golang-ci-tools/modgraph"
 	"github.com/lemon-mint/golang-ci-tools/staticcheck"
 )
 
-const Version = "0.0.1-dev"
+const Version = "0.1.0-dev"
 
 func main() {
 	var pkgname string = "."
@@ -36,6 +37,17 @@ func main() {
 		fmt.Printf("%s\n", staticcheckInfo)
 	} else {
 		fmt.Println("🎉  No staticcheck errors found!")
+	}
+	fmt.Print("```\n\n")
+
+	fmt.Print("## gosec\n\n")
+	fmt.Print("```\n")
+	// Run gosec.
+	gosecInfo := gosec.Run("./...")
+	if len(gosecInfo) > 0 {
+		fmt.Printf("%s\n", gosecInfo)
+	} else {
+		fmt.Println("🎉  No gosec errors found!")
 	}
 	fmt.Print("```\n\n")
 
