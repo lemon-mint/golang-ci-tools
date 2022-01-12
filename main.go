@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"log"
 	"os"
+	"runtime"
 	"time"
 
 	"github.com/lemon-mint/golang-ci-tools/gocap"
@@ -12,13 +13,19 @@ import (
 	"github.com/lemon-mint/golang-ci-tools/staticcheck"
 )
 
+const Version = "0.0.1-dev"
+
 func main() {
 	var pkgname string = "."
 	if len(os.Args) > 1 {
 		pkgname = os.Args[1]
 	}
-	fmt.Print("# golang-ci-tools Report\n\n")
+	fmt.Print("# Golang CI Tools Report\n\n")
 	fmt.Print("Report generated at: ", time.Now().Format(time.RFC3339))
+	fmt.Print("\n\n")
+	fmt.Print("Go version: ", runtime.Version())
+	fmt.Print("\n\n")
+	fmt.Print("golang-ci-tools version: ", Version)
 	fmt.Print("\n\n")
 
 	fmt.Print("## staticcheck\n\n")

@@ -1,6 +1,10 @@
-# golang-ci-tools Report
+# Golang CI Tools Report
 
-Report generated at: 2022-01-12T23:53:50+09:00
+Report generated at: 2022-01-12T23:57:11+09:00
+
+Go version: go1.17.6
+
+golang-ci-tools version: 0.0.1-dev
 
 ## staticcheck
 
@@ -11,9 +15,9 @@ Report generated at: 2022-01-12T23:53:50+09:00
 ## gocap
 
 ```
-github.com/lemon-mint/golang-ci-tools (file)
+github.com/lemon-mint/golang-ci-tools (file, runtime)
 
-github.com/lemon-mint/golang-ci-tools/gocap (file, execute)
+github.com/lemon-mint/golang-ci-tools/gocap (execute, file)
 github.com/lemon-mint/golang-ci-tools/golicenses (execute, file)
 github.com/lemon-mint/golang-ci-tools/modgraph (execute)
 github.com/lemon-mint/golang-ci-tools/staticcheck (execute, file)
