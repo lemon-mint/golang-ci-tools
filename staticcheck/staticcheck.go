@@ -1,4 +1,4 @@
-package gocap
+package staticcheck
 
 import (
 	"bytes"
@@ -10,8 +10,8 @@ import (
 func init() {
 	// Set up the command.
 
-	// go install github.com/cugu/gocap@latest
-	cmd := exec.Command("go", "install", "github.com/cugu/gocap@latest")
+	// go install honnef.co/go/tools/cmd/staticcheck@latest
+	cmd := exec.Command("go", "install", "honnef.co/go/tools/cmd/staticcheck@latest")
 	cmd.Stdout = os.Stdout
 	err := cmd.Run()
 	if err != nil {
@@ -20,7 +20,7 @@ func init() {
 }
 
 func Run(packageName string) ([]byte, error) {
-	cmd := exec.Command("gocap", "generate", packageName)
+	cmd := exec.Command("staticcheck", packageName)
 	// Set up the output buffer.
 	var out bytes.Buffer
 	cmd.Stdout = &out
