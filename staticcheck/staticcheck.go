@@ -19,13 +19,14 @@ func init() {
 	}
 }
 
-func Run(packageName string) ([]byte, error) {
+func Run(packageName string) []byte {
 	cmd := exec.Command("staticcheck", packageName)
 	// Set up the output buffer.
 	var out bytes.Buffer
 	cmd.Stdout = &out
+	cmd.Stderr = &out
 	// Run the command.
-	err := cmd.Run()
+	cmd.Run()
 	// Return the output.
-	return out.Bytes(), err
+	return out.Bytes()
 }
