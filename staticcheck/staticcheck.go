@@ -26,7 +26,10 @@ func Run(packageName string) []byte {
 	cmd.Stdout = &out
 	cmd.Stderr = &out
 	// Run the command.
-	cmd.Run()
+	err := cmd.Run()
+	if err != nil {
+		log.Println(err)
+	}
 	// Return the output.
 	return out.Bytes()
 }

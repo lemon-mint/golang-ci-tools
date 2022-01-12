@@ -2,6 +2,7 @@ package modgraph
 
 import (
 	"bytes"
+	"log"
 	"os/exec"
 	"strings"
 )
@@ -13,7 +14,11 @@ func Run() []string {
 	var out bytes.Buffer
 	cmd.Stdout = &out
 	// Run the command.
-	cmd.Run()
+	err := cmd.Run()
+	if err != nil {
+		log.Println(err)
+		return []string{}
+	}
 	// Return the output.
 	output := out.String()
 	splited := strings.Split(output, "\n")
