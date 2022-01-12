@@ -21,7 +21,7 @@ func init() {
 	}
 }
 
-func Run(packageName string) []byte {
+func Run(packageName string) ([]byte, error) {
 	cmd := exec.Command("gosec", packageName)
 	// Set up the output buffer.
 	var out bytes.Buffer
@@ -33,5 +33,5 @@ func Run(packageName string) []byte {
 		log.Println("Error running gosec:", err)
 	}
 	// Return the output.
-	return []byte(stripansi.Strip(out.String()))
+	return []byte(stripansi.Strip(out.String())), err
 }
