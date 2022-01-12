@@ -14,7 +14,7 @@ import (
 	"github.com/lemon-mint/golang-ci-tools/staticcheck"
 )
 
-const Version = "0.1.0-dev"
+const Version = "0.1.1-dev"
 
 func main() {
 	var pkgname string = "."
