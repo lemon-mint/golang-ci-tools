@@ -5,6 +5,8 @@ import (
 	"log"
 	"os"
 	"os/exec"
+
+	"github.com/acarl005/stripansi"
 )
 
 func init() {
@@ -28,8 +30,8 @@ func Run(packageName string) []byte {
 	// Run the command.
 	err := cmd.Run()
 	if err != nil {
-		log.Println(err)
+		log.Println("Error running gosec:", err)
 	}
 	// Return the output.
-	return out.Bytes()
+	return []byte(stripansi.Strip(out.String()))
 }
