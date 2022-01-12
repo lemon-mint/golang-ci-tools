@@ -13,12 +13,10 @@ import (
 )
 
 func main() {
-	pkgname := os.Args[1]
-
-	if pkgname == "" {
-		pkgname = "."
+	var pkgname string = "."
+	if len(os.Args) > 1 {
+		pkgname = os.Args[1]
 	}
-
 	fmt.Print("# golang-ci-tools Report\n\n")
 	fmt.Print("Report generated at: ", time.Now().Format(time.RFC3339))
 	fmt.Print("\n\n")
